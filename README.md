@@ -1,5 +1,5 @@
 # NFL Stadiums
-This application will filter and sort NFL stadiums by various metrics including state, capacity, indoor/outdoor, and more. This application will show understanding of multiple disciplines of internet software dev. 
+This application will list NFL stadiums and include various metrics including state, capacity, indoor/outdoor, and more. This application will show understanding of multiple disciplines of internet software dev. 
 
 ## Project Deployment
 
