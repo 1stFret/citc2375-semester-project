@@ -1,0 +1,298 @@
+SQL> 
+SQL> set echo on;
+SQL> 
+SQL> --2.1a
+SQL> SELECT e.emp_num, emp_title, emp_lname,
+  2      emp_fname, pil_license, pil_ratings
+  3  FROM pilot p, avia_employee e
+  4  WHERE p.emp_num = e.emp_num;
+
+   EMP_NUM EMP_ EMP_LNAME       EMP_FNAME       PIL_LICENSE               PIL_RATINGS                   
+---------- ---- --------------- --------------- ------------------------- ------------------------------
+       101 Ms.  Lewis          Rhonda         ATP                      ATP/SEL/MEL/Instr/CFII       
+       104 Mr.  Lange          John           ATP                      ATP/SEL/MEL/Instr            
+       105 Mr.  Williams       Robert         COM                      COMM/SEL/MEL/Instr/CFI       
+       106 Mrs. Duzak          Jeanine        COM                      ATP/SEL/MEL/Instr            
+       109 Ms.  Travis         Elizabeth      COM                      ATP/SEL/MEL/SES/Instr/CFII  
+
+SQL> 
+SQL> --2.1b
+SQL> SELECT e.emp_num, emp_title, emp_lname,
+  2      emp_fname, pil_license, pil_ratings
+  3  FROM pilot p JOIN avia_employee e
+  4  ON p.emp_num = e.emp_num;
+
+   EMP_NUM EMP_ EMP_LNAME       EMP_FNAME       PIL_LICENSE               PIL_RATINGS                   
+---------- ---- --------------- --------------- ------------------------- ------------------------------
+       101 Ms.  Lewis          Rhonda         ATP                      ATP/SEL/MEL/Instr/CFII       
+       104 Mr.  Lange          John           ATP                      ATP/SEL/MEL/Instr            
+       105 Mr.  Williams       Robert         COM                      COMM/SEL/MEL/Instr/CFI       
+       106 Mrs. Duzak          Jeanine        COM                      ATP/SEL/MEL/Instr            
+       109 Ms.  Travis         Elizabeth      COM                      ATP/SEL/MEL/SES/Instr/CFII  
+
+SQL> 
+SQL> --2.2a
+SQL> SELECT e.emp_num, emp_title, emp_lname,
+  2      emp_fname, pil_license, pil_ratings
+  3  FROM pilot p, avia_employee e
+  4  WHERE e.emp_num = p.emp_num (+)
+  5  ORDER BY e.emp_num;
+
+   EMP_NUM EMP_ EMP_LNAME       EMP_FNAME       PIL_LICENSE               PIL_RATINGS                   
+---------- ---- --------------- --------------- ------------------------- ------------------------------
+       100 Mr.  Kolmycz        George                                                                 
+       101 Ms.  Lewis          Rhonda         ATP                      ATP/SEL/MEL/Instr/CFII       
+       102 Mr.  VanDam         Rhett                                                                  
+       103 Ms.  Jones          Anne                                                                   
+       104 Mr.  Lange          John           ATP                      ATP/SEL/MEL/Instr            
+       105 Mr.  Williams       Robert         COM                      COMM/SEL/MEL/Instr/CFI       
+       106 Mrs. Duzak          Jeanine        COM                      ATP/SEL/MEL/Instr            
+       107 Mr.  Diante         Jorge                                                                  
+       108 Mr.  Wiesenbach     Paul                                                                   
+       109 Ms.  Travis         Elizabeth      COM                      ATP/SEL/MEL/SES/Instr/CFII  
+       110 Mrs. Genkazi        Leighla                                                                
+
+11 rows selected. 
+
+SQL> 
+SQL> --2.2b
+SQL> SELECT e.emp_num, emp_title, emp_lname,
+  2      emp_fname, pil_license, pil_ratings
+  3  FROM avia_employee e LEFT JOIN pilot p
+  4  ON p.emp_num = e.emp_num
+  5  ORDER BY e.emp_num;
+
+   EMP_NUM EMP_ EMP_LNAME       EMP_FNAME       PIL_LICENSE               PIL_RATINGS                   
+---------- ---- --------------- --------------- ------------------------- ------------------------------
+       100 Mr.  Kolmycz        George                                                                 
+       101 Ms.  Lewis          Rhonda         ATP                      ATP/SEL/MEL/Instr/CFII       
+       102 Mr.  VanDam         Rhett                                                                  
+       103 Ms.  Jones          Anne                                                                   
+       104 Mr.  Lange          John           ATP                      ATP/SEL/MEL/Instr            
+       105 Mr.  Williams       Robert         COM                      COMM/SEL/MEL/Instr/CFI       
+       106 Mrs. Duzak          Jeanine        COM                      ATP/SEL/MEL/Instr            
+       107 Mr.  Diante         Jorge                                                                  
+       108 Mr.  Wiesenbach     Paul                                                                   
+       109 Ms.  Travis         Elizabeth      COM                      ATP/SEL/MEL/SES/Instr/CFII  
+       110 Mrs. Genkazi        Leighla                                                                
+
+11 rows selected. 
+
+SQL> 
+SQL> --2.3a
+SQL> SELECT char_date, cus_lname, cus_fname, cus_balance, 
+  2      char_trip, char_destination, c.ac_number, mod_code 
+  3  FROM charter c, avia_customer cu, aircraft a
+  4  WHERE c.cus_code = cu.cus_code
+  5    AND c.ac_number = a.ac_number
+  6    AND cu.cus_balance > 0
+  7  ORDER BY c.char_date, cu.cus_lname, cu.cus_fname;
+
+CHAR_DATE CUS_LNAME       CUS_FNAME       CUS_BALANCE  CHAR_TRIP CHA AC_NU MOD_CODE  
+--------- --------------- --------------- ----------- ---------- --- ----- ----------
+05-FEB-13 Orlando        Myron               673.21      10003 GNV 4278Y PA31-350  
+06-FEB-13 Smith          Kathy               896.54      10007 GNV 2778V PA31-350  
+06-FEB-13 Smith          Olette              453.98      10004 STL 1484P PA23-250  
+07-FEB-13 Orlando        Myron               673.21      10008 TYS 1484P PA23-250  
+07-FEB-13 Smith          Kathy               896.54      10011 BNA 1484P PA23-250  
+10-FEB-13 Orlando        Myron               673.21      10017 STL 1484P PA23-250  
+
+6 rows selected. 
+
+SQL> 
+SQL> --2.3b
+SQL> SELECT char_date, cus_lname, cus_fname, cus_balance, 
+  2      char_trip, char_destination, c.ac_number, mod_code 
+  3  FROM charter c JOIN avia_customer cu
+  4      ON c.cus_code = cu.cus_code
+  5  JOIN aircraft a
+  6      ON c.ac_number = a.ac_number
+  7  WHERE cu.cus_balance > 0
+  8  ORDER BY c.char_date, cu.cus_lname, cu.cus_fname;
+
+CHAR_DATE CUS_LNAME       CUS_FNAME       CUS_BALANCE  CHAR_TRIP CHA AC_NU MOD_CODE  
+--------- --------------- --------------- ----------- ---------- --- ----- ----------
+05-FEB-13 Orlando        Myron               673.21      10003 GNV 4278Y PA31-350  
+06-FEB-13 Smith          Kathy               896.54      10007 GNV 2778V PA31-350  
+06-FEB-13 Smith          Olette              453.98      10004 STL 1484P PA23-250  
+07-FEB-13 Orlando        Myron               673.21      10008 TYS 1484P PA23-250  
+07-FEB-13 Smith          Kathy               896.54      10011 BNA 1484P PA23-250  
+10-FEB-13 Orlando        Myron               673.21      10017 STL 1484P PA23-250  
+
+6 rows selected. 
+
+SQL> 
+SQL> --2.4a
+SQL> SELECT a.ac_number, a.mod_code, m.mod_manufacturer, a.ac_ttaf, a.ac_ttel, 
+  2         a.ac_tter, c.char_trip, c.char_date, c.char_destination, c.char_distance 
+  3  FROM aircraft a, model m, charter c
+  4  WHERE a.mod_code = m.mod_code
+  5    AND a.ac_number = c.ac_number (+)
+  6  ORDER BY a.ac_number;
+
+AC_NU MOD_CODE   MOD_MANUFACTURE    AC_TTAF    AC_TTEL    AC_TTER  CHAR_TRIP CHAR_DATE CHA CHAR_DISTANCE
+----- ---------- --------------- ---------- ---------- ---------- ---------- --------- --- -------------
+1484P PA23-250   Piper              1833.1     1833.1      101.8      10004 06-FEB-13 STL           472
+1484P PA23-250   Piper              1833.1     1833.1      101.8      10017 10-FEB-13 STL           508
+1484P PA23-250   Piper              1833.1     1833.1      101.8      10011 07-FEB-13 BNA           352
+1484P PA23-250   Piper              1833.1     1833.1      101.8      10008 07-FEB-13 TYS           644
+2289L C-90A      Beechcraft         4243.8      768.9     1123.4      10001 05-FEB-13 ATL           936
+2289L C-90A      Beechcraft         4243.8      768.9     1123.4      10015 09-FEB-13 GNV          1645
+2289L C-90A      Beechcraft         4243.8      768.9     1123.4      10005 06-FEB-13 ATL          1023
+2289L C-90A      Beechcraft         4243.8      768.9     1123.4      10009 07-FEB-13 GNV          1574
+2778V PA31-350   Piper              7992.9     1513.1      789.5      10002 05-FEB-13 BNA           320
+2778V PA31-350   Piper              7992.9     1513.1      789.5      10012 08-FEB-13 MOB           884
+2778V PA31-350   Piper              7992.9     1513.1      789.5      10016 09-FEB-13 MQY           312
+
+AC_NU MOD_CODE   MOD_MANUFACTURE    AC_TTAF    AC_TTEL    AC_TTER  CHAR_TRIP CHAR_DATE CHA CHAR_DISTANCE
+----- ---------- --------------- ---------- ---------- ---------- ---------- --------- --- -------------
+2778V PA31-350   Piper              7992.9     1513.1      789.5      10007 06-FEB-13 GNV          1574
+4278Y PA31-350   Piper              2147.3      622.1      243.2      10003 05-FEB-13 GNV          1574
+4278Y PA31-350   Piper              2147.3      622.1      243.2      10006 06-FEB-13 STL           472
+4278Y PA31-350   Piper              2147.3      622.1      243.2      10010 07-FEB-13 ATL           998
+4278Y PA31-350   Piper              2147.3      622.1      243.2      10013 08-FEB-13 TYS           644
+4278Y PA31-350   Piper              2147.3      622.1      243.2      10014 09-FEB-13 ATL           936
+4278Y PA31-350   Piper              2147.3      622.1      243.2      10018 10-FEB-13 TYS           644
+5289L C-90A      Beechcraft         3950.2      745.5     1001.1                                       
+
+19 rows selected. 
+
+SQL> 
+SQL> --2.4b
+SQL> SELECT a.ac_number, a.mod_code, mod_manufacturer, ac_ttaf, ac_ttel, 
+  2      ac_tter, char_trip, char_date, char_destination, char_distance 
+  3  FROM aircraft a 
+  4  LEFT JOIN charter c 
+  5      ON a.ac_number = c.ac_number 
+  6  JOIN model m 
+  7      ON a.mod_code = m.mod_code
+  8  ORDER BY a.ac_number;
+
+AC_NU MOD_CODE   MOD_MANUFACTURE    AC_TTAF    AC_TTEL    AC_TTER  CHAR_TRIP CHAR_DATE CHA CHAR_DISTANCE
+----- ---------- --------------- ---------- ---------- ---------- ---------- --------- --- -------------
+1484P PA23-250   Piper              1833.1     1833.1      101.8      10004 06-FEB-13 STL           472
+1484P PA23-250   Piper              1833.1     1833.1      101.8      10017 10-FEB-13 STL           508
+1484P PA23-250   Piper              1833.1     1833.1      101.8      10011 07-FEB-13 BNA           352
+1484P PA23-250   Piper              1833.1     1833.1      101.8      10008 07-FEB-13 TYS           644
+2289L C-90A      Beechcraft         4243.8      768.9     1123.4      10001 05-FEB-13 ATL           936
+2289L C-90A      Beechcraft         4243.8      768.9     1123.4      10015 09-FEB-13 GNV          1645
+2289L C-90A      Beechcraft         4243.8      768.9     1123.4      10005 06-FEB-13 ATL          1023
+2289L C-90A      Beechcraft         4243.8      768.9     1123.4      10009 07-FEB-13 GNV          1574
+2778V PA31-350   Piper              7992.9     1513.1      789.5      10002 05-FEB-13 BNA           320
+2778V PA31-350   Piper              7992.9     1513.1      789.5      10012 08-FEB-13 MOB           884
+2778V PA31-350   Piper              7992.9     1513.1      789.5      10016 09-FEB-13 MQY           312
+
+AC_NU MOD_CODE   MOD_MANUFACTURE    AC_TTAF    AC_TTEL    AC_TTER  CHAR_TRIP CHAR_DATE CHA CHAR_DISTANCE
+----- ---------- --------------- ---------- ---------- ---------- ---------- --------- --- -------------
+2778V PA31-350   Piper              7992.9     1513.1      789.5      10007 06-FEB-13 GNV          1574
+4278Y PA31-350   Piper              2147.3      622.1      243.2      10003 05-FEB-13 GNV          1574
+4278Y PA31-350   Piper              2147.3      622.1      243.2      10006 06-FEB-13 STL           472
+4278Y PA31-350   Piper              2147.3      622.1      243.2      10010 07-FEB-13 ATL           998
+4278Y PA31-350   Piper              2147.3      622.1      243.2      10013 08-FEB-13 TYS           644
+4278Y PA31-350   Piper              2147.3      622.1      243.2      10014 09-FEB-13 ATL           936
+4278Y PA31-350   Piper              2147.3      622.1      243.2      10018 10-FEB-13 TYS           644
+5289L C-90A      Beechcraft         3950.2      745.5     1001.1                                       
+
+19 rows selected. 
+
+SQL> 
+SQL> --2.5a
+SQL> INSERT INTO AIRCRAFT (AC_NUMBER, MOD_CODE, AC_TTAF, AC_TTEL, AC_TTER) VALUES ('5289L', 'C-90A', 3950.2, 745.5, 1001.1);
+
+Error starting at line : 68 in command -
+INSERT INTO AIRCRAFT (AC_NUMBER, MOD_CODE, AC_TTAF, AC_TTEL, AC_TTER) VALUES ('5289L', 'C-90A', 3950.2, 745.5, 1001.1)
+Error report -
+ORA-00001: unique constraint (MBROGERS1.SYS_C0044295) violated
+Help: https://docs.oracle.com/error-help/db/ora-00001/
+SQL> 
+SQL> --2.6a
+SQL> SELECT char_date, ch.ac_number, char_destination, char_distance, 
+  2      (emp_lname || ', ' || emp_fname) as emp_full_name, crew_job
+  3  FROM avia_employee e, crew c, charter ch
+  4  WHERE e.emp_num = c.emp_num
+  5    AND c.char_trip = ch.char_trip
+  6    AND ch.char_date = TO_DATE('07-FEB-2013');
+
+CHAR_DATE AC_NU CHA CHAR_DISTANCE EMP_FULL_NAME                    CREW_JOB            
+--------- ----- --- ------------- -------------------------------- --------------------
+07-FEB-13 1484P BNA           352 Lewis, Rhonda                   Pilot              
+07-FEB-13 1484P BNA           352 Lange, John                     Copilot            
+07-FEB-13 2289L GNV          1574 Williams, Robert                Pilot              
+07-FEB-13 1484P TYS           644 Duzak, Jeanine                  Pilot              
+07-FEB-13 4278Y ATL           998 Wiesenbach, Paul                Pilot              
+
+SQL> 
+SQL> --2.6b
+SQL> SELECT char_date, ch.ac_number, char_destination, char_distance, 
+  2      (emp_lname || ', ' || emp_fname) as emp_full_name, crew_job
+  3  FROM avia_employee e
+  4  JOIN crew c
+  5    ON e.emp_num = c.emp_num
+  6  JOIN charter ch
+  7    ON c.char_trip = ch.char_trip
+  8  WHERE ch.char_date = TO_DATE('07-FEB-2013');
+
+CHAR_DATE AC_NU CHA CHAR_DISTANCE EMP_FULL_NAME                    CREW_JOB            
+--------- ----- --- ------------- -------------------------------- --------------------
+07-FEB-13 1484P BNA           352 Lewis, Rhonda                   Pilot              
+07-FEB-13 1484P BNA           352 Lange, John                     Copilot            
+07-FEB-13 2289L GNV          1574 Williams, Robert                Pilot              
+07-FEB-13 1484P TYS           644 Duzak, Jeanine                  Pilot              
+07-FEB-13 4278Y ATL           998 Wiesenbach, Paul                Pilot              
+
+SQL> 
+SQL> --2.7a
+SQL> INSERT INTO rating (rtg_code, rtg_name) 
+  2  VALUES ('MES', 'Multiengine Sea');
+
+Error starting at line : 89 in command -
+INSERT INTO rating (rtg_code, rtg_name) 
+VALUES ('MES', 'Multiengine Sea')
+Error report -
+ORA-00001: unique constraint (MBROGERS1.SYS_C0044301) violated
+Help: https://docs.oracle.com/error-help/db/ora-00001/
+SQL> 
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> 
+SQL> --2.7b
+SQL> SELECT (emp_lname || ', ' || emp_fname) as emp_name, emp_hire_date,
+  2      TRUNC(MONTHS_BETWEEN(SYSDATE, emp_dob) / 12) AS age,
+  3      r.rtg_code, r.rtg_name, earnrtg_date
+  4  FROM rating r 
+  5  LEFT JOIN earnedrating ea
+  6      ON r.rtg_code = ea.rtg_code
+  7  LEFT JOIN avia_employee e
+  8      ON ea.emp_num = e.emp_num;
+
+EMP_NAME                         EMP_HIRE_        AGE RTG_C RTG_NAME                                           EARNRTG_D
+-------------------------------- --------- ---------- ----- -------------------------------------------------- ---------
+,                                                    MES   Multiengine Sea                                            
+Lewis, Rhonda                   25-APR-88         61 CFI   Certified Flight Instructor                      18-FEB-98
+Lewis, Rhonda                   25-APR-88         61 CFII  Certified Flight Instructor, Instrument          15-DEC-05
+Lewis, Rhonda                   25-APR-88         61 INSTR Instrument                                        08-NOV-93
+Lewis, Rhonda                   25-APR-88         61 MEL   Multiengine Land                                  23-JUN-94
+Lewis, Rhonda                   25-APR-88         61 SEL   Single Engine, Land                               21-APR-93
+Lange, John                     20-OCT-96         54 INSTR Instrument                                        15-JUL-96
+Lange, John                     20-OCT-96         54 MEL   Multiengine Land                                  29-JAN-97
+Lange, John                     20-OCT-96         54 SEL   Single Engine, Land                               12-MAR-95
+Williams, Robert                08-JAN-06         51 CFI   Certified Flight Instructor                      18-NOV-97
+Williams, Robert                08-JAN-06         51 INSTR Instrument                                        17-APR-95
+
+EMP_NAME                         EMP_HIRE_        AGE RTG_C RTG_NAME                                           EARNRTG_D
+-------------------------------- --------- ---------- ----- -------------------------------------------------- ---------
+Williams, Robert                08-JAN-06         51 MEL   Multiengine Land                                  12-AUG-95
+Williams, Robert                08-JAN-06         51 SEL   Single Engine, Land                               23-SEP-94
+Duzak, Jeanine                  05-JAN-91         58 INSTR Instrument                                        20-DEC-95
+Duzak, Jeanine                  05-JAN-91         58 MEL   Multiengine Land                                  02-APR-96
+Duzak, Jeanine                  05-JAN-91         58 SEL   Single Engine, Land                               10-MAR-94
+Travis, Elizabeth               14-APR-91         65 CFI   Certified Flight Instructor                      05-NOV-98
+Travis, Elizabeth               14-APR-91         65 CFII  Certified Flight Instructor, Instrument          21-JUN-03
+Travis, Elizabeth               14-APR-91         65 INSTR Instrument                                        23-JUL-96
+Travis, Elizabeth               14-APR-91         65 MEL   Multiengine Land                                  15-MAR-97
+Travis, Elizabeth               14-APR-91         65 SEL   Single Engine, Land                               05-FEB-96
+Travis, Elizabeth               14-APR-91         65 SES   Single Engine, Sea                                12-MAY-96
+
+22 rows selected.
