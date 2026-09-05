@@ -9,6 +9,15 @@ This application will list NFL stadiums and include various metrics including st
 - Live Site: https://citc2375-mbrogers1-project.onrender.com/
 - Project Topic: NFL Stadiums.
 
+- ## Planned Data Model
+- catagory: Whether it is indoor/outdoor and open/dome
+- name: The official name of the stadium
+- team: The primary NFL team(s) that play there
+- location: City and state where the stadium is located
+- capacity: Maximum seating capacity
+- imageUrl: Path or URL to an image of the stadium
+- redirect: A link to the stadiums hosted site.
+
 ## Week 3
 
 - Created and linked a universal 'styles.css' file across all pages.
@@ -17,3 +26,4 @@ This application will list NFL stadiums and include various metrics including st
 - Styled stadium article components using '.stadium-article' for consistency across the site.
 - Image handling with using 'max-width: 100%'.
 - Used ':hover' and ':focus' to visually help direct users.
+
