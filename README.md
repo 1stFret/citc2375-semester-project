@@ -27,3 +27,10 @@ This application will list NFL stadiums and include various metrics including st
 - Image handling with using 'max-width: 100%'.
 - Used ':hover' and ':focus' to visually help direct users.
 
+## Week 4
+
+-Defined a :root Dallas Cowboys color palette using CSS variables to eliminate hardcoded hex values.  
+-Made the main navigation a Flexbox container for adaptive header alignment.
+-Implemented a responsive stadium card grid using display: flex and display: flex-wrap on .item-list.  
+-Added a card hover effect featuring elevation, scaling, and drop shadows.  
+
