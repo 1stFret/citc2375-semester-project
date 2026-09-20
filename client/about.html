@@ -7,16 +7,27 @@
     <title>About NFL Stadiums Collections</title>
   </head>
   <body>
-    <header>
-  <div class="content-width">
-    <p>NFL Stadiums</p>
-    <nav>
-      <a href="index.html" target="_blank">Home</a>
-      <a href="about.html" target="_blank">About</a>
-    </nav>
-  </div>
-</header>
-    <nav></nav>
+    <header class="site-header">
+      <div class="content-width header-inner">
+        <nav class="nav-left">
+          <a href="index.html" class="active">Home</a>
+          <a href="#">Schedule</a>
+          <a href="about.html">About</a>
+        </nav>
+
+        <div class="site-branding">
+          <a href="index.html">
+            <img src="https://upload.wikimedia.org/wikipedia/en/a/a2/National_Football_League_logo.svg" alt="NFL Logo" class="header-logo">
+          </a>
+        </div>
+
+        <nav class="nav-right">
+          <a href="add.html">Add Stadium</a>
+          <a href="#">Tickets</a>
+          <a href="#">Contact Us</a>
+        </nav>
+      </div>
+    </header>
     <main>
       <p class="about-p">
         This project is going to be a comprehensive database of NFL stadiums. It
@@ -25,6 +36,35 @@
         facts. This program will allow even non-NFL fans to feel up to speed on
         all things related to their closest NFL stadiums.
       </p>
+      <table>
+        <caption>
+          NFL Stadium Category Example
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">Stadium Type</th>
+            <th scope="col">Count</th>
+            <th scope="col">Avg Capacity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Outdoor</th>
+            <td>20</td>
+            <td>68,000</td>
+          </tr>
+          <tr>
+            <th scope="row">Indoor / Dome</th>
+            <td>5</td>
+            <td>66,000</td>
+          </tr>
+          <tr>
+            <th scope="row">Retractable Roof</th>
+            <td>5</td>
+            <td>71,000</td>
+          </tr>
+        </tbody>
+      </table>
     </main>
     <footer></footer>
   </body>

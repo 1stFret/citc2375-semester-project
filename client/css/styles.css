@@ -1,8 +1,12 @@
+/* -----VARIABLES & CORE----- */
 :root {
   --color-background: #ffffff;
   --color-surface: #869397;
   --color-text: #002244;
   --color-accent: #002244;
+  --navy-primary: #041e42;
+  --navy-hover: #003594;
+  --silver-border: #86939e;
 }
 
 body {
@@ -16,10 +20,10 @@ body {
 .content-width {
   max-width: 1200px;
   margin: auto;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding: 0 50px;
 }
 
+/* -----TEXT----- */
 h1 {
   font-size: 2em;
   font-weight: bold;
@@ -50,20 +54,37 @@ p {
   color: var(--color-text);
 }
 
-.stadium-article {
-  border: 1px solid var(--color-accent);
-  border-radius: 5px;
-  padding: 10px;
-  margin-bottom: 20px;
-  background-color: var(--color-surface);
+
+/* -----HEADER AND NAV----- */
+
+
+.site-header {
+  background-color: var(--navy-primary);
+  border-bottom: 3px solid var(--silver-border);
+  padding: 8px 0;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 4px;
-  display: block;
-  margin-bottom: 15px;
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  gap: 20px;
+  flex: 1;
+}
+
+.nav-left { justify-content: flex-start; }
+.nav-right { justify-content: flex-end; }
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
 nav a {
@@ -81,13 +102,26 @@ nav a:focus {
   text-decoration: underline;
 }
 
-nav {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
+.site-header a {
+  color: var(--silver-border);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.85rem;
+  text-transform: uppercase;
 }
 
+.site-header a:hover,
+.site-header a.active {
+  color: #ffffff;
+}
+
+.header-logo {
+  height: 35px;
+  width: auto;
+  display: block;
+}
+
+/*  STADIUM CARDS */
 .item-list {
   display: flex;
   flex-wrap: wrap;
@@ -98,10 +132,23 @@ figure {
   flex: 0 1 300px;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  display: block;
+  margin-bottom: 15px;
+}
+
 .stadium-article {
-  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
+  border: 1px solid var(--color-accent);
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: var(--color-surface);
   position: relative;
   z-index: 1;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
 }
 
 .stadium-article:hover {
@@ -109,3 +156,131 @@ figure {
   z-index: 100;
   box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
 }
+
+
+/* -----TABLE----- */
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 1rem;
+}
+
+caption {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+th, td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+thead th {
+  background-color: var(--color-text);
+  color: #ffffff;
+}
+
+tbody tr:nth-child(even) { background-color: #f8f9fa; }
+tbody tr:hover { background-color: #e9ecef; }
+
+
+/* -----FORM----- */
+
+
+.form-container {
+  max-width: 650px;
+  margin: 40px auto;
+  background-color: #ffffff;
+  padding: 35px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-top: 5px solid var(--navy-primary);
+}
+
+.form-container h1 {
+  margin-top: 0;
+  color: var(--navy-primary);
+  font-size: 1.8rem;
+}
+
+.form-intro {
+  color: #555555;
+  margin-bottom: 25px;
+}
+
+.stadium-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-row .form-group { flex: 1; }
+
+.stadium-form label {
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: var(--navy-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stadium-form input[type="text"],
+.stadium-form input[type="number"],
+.stadium-form select {
+  padding: 12px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.stadium-form input[type="text"]:focus,
+.stadium-form input[type="number"]:focus,
+.stadium-form select:focus {
+  outline: none;
+  border-color: var(--navy-primary);
+  box-shadow: 0 0 0 3px rgba(4, 30, 66, 0.15);
+}
+
+.stadium-form input[type="file"] {
+  padding: 8px;
+  border: 1px dashed var(--silver-border);
+  border-radius: 5px;
+  background-color: #f8f9fa;
+  cursor: pointer;
+}
+
+.submit-btn {
+  background-color: var(--navy-primary);
+  color: #ffffff;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.submit-btn:hover { background-color: var(--navy-hover); }
+.submit-btn:active { transform: scale(0.99); }

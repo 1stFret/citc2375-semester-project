@@ -7,12 +7,24 @@
     <title>NFL Stadiums Collection</title>
   </head>
   <body>
-    <header>
-      <div class="content-width">
-        <p>NFL Stadiums</p>
-        <nav>
-          <a href="index.html" target="_blank">Home</a>
-          <a href="about.html" target="_blank">About</a>
+    <header class="site-header">
+      <div class="content-width header-inner">
+        <nav class="nav-left">
+          <a href="index.html" class="active">Home</a>
+          <a href="#">Schedule</a>
+          <a href="about.html">About</a>
+        </nav>
+
+        <div class="site-branding">
+          <a href="index.html">
+            <img src="https://upload.wikimedia.org/wikipedia/en/a/a2/National_Football_League_logo.svg" alt="NFL Logo" class="header-logo">
+          </a>
+        </div>
+
+        <nav class="nav-right">
+          <a href="add.html">Add Stadium</a>
+          <a href="#">Tickets</a>
+          <a href="#">Contact Us</a>
         </nav>
       </div>
     </header>
@@ -22,6 +34,7 @@
         <h1>NFL Stadiums Collection</h1>
         <hr />
         <div class="item-list">
+          <!-- NFC EAST -->
           <!-- Dallas Cowboys -->
           <figure>
             <article class="stadium-article">
@@ -34,16 +47,17 @@
                 <strong>Description:</strong> Home of the Dallas Cowboys,
                 stadium located in Arlington, Texas.
               </p>
-              <p><strong>Seating Capaity:</strong> ~100,000</p>
+              <p><strong>Seating Capacity:</strong> ~100,000</p>
             </article>
           </figure>
+
+          <!-- New York Giants -->
           <figure>
-            <!-- New York Giants -->
             <article class="stadium-article">
               <a href="https://www.metlifestadium.com/" target="_blank">
                 <h2>MetLife Stadium</h2>
               </a>
-              <img src="images/Metlife.jpg" alt="Metlife Stadium" />
+              <img src="images/Metlife.jpg" alt="MetLife Stadium" />
               <p><strong>Category:</strong> Outdoor/Open</p>
               <p>
                 <strong>Description:</strong> Shared home of the New York Giants
@@ -52,13 +66,11 @@
               <p><strong>Seating Capacity:</strong> ~82,000</p>
             </article>
           </figure>
+
+          <!-- Philadelphia Eagles -->
           <figure>
-            <!-- Philadelphia Eagles -->
             <article class="stadium-article">
-              <a
-                href="https://www.merriam-webster.com/dictionary/cry%20baby"
-                target="_blank"
-              >
+              <a href="https://www.lincolnfinancialfield.com/" target="_blank">
                 <h2>Lincoln Financial Field</h2>
               </a>
               <img src="images/TheLinc.jpg" alt="Lincoln Financial Field" />
@@ -70,8 +82,9 @@
               <p><strong>Seating Capacity:</strong> ~69,000</p>
             </article>
           </figure>
+
+          <!-- Washington Commanders -->
           <figure>
-            <!-- Washington Commanders -->
             <article class="stadium-article">
               <a href="https://northweststadium.com/" target="_blank">
                 <h2>Northwest Stadium</h2>
@@ -85,16 +98,14 @@
               <p><strong>Seating Capacity:</strong> ~64,000</p>
             </article>
           </figure>
+
           <!-- NFC NORTH -->
           <figure>
             <article class="stadium-article">
               <a href="https://www.soldierfield.com/" target="_blank">
                 <h2>Soldier Field</h2>
               </a>
-              <img
-                src="images/SoldierField.jpg"
-                alt="Soldier Field"
-              />
+              <img src="images/SoldierField.jpg" alt="Soldier Field" />
               <p><strong>Category:</strong> Outdoor/Open</p>
               <p>
                 <strong>Description:</strong> Home of the Chicago Bears, stadium
@@ -109,10 +120,7 @@
               <a href="https://www.fordfield.com/" target="_blank">
                 <h2>Ford Field</h2>
               </a>
-              <img
-                src="images/FordField.jpg"
-                alt="Ford Field"
-              />
+              <img src="images/FordField.jpg" alt="Ford Field" />
               <p><strong>Category:</strong> Indoor/Dome</p>
               <p>
                 <strong>Description:</strong> Home of the Detroit Lions, stadium
@@ -127,10 +135,7 @@
               <a href="https://www.lambeaufield.com/" target="_blank">
                 <h2>Lambeau Field</h2>
               </a>
-              <img
-                src="images/LambeauField.jpg"
-                alt="Lambeau Field"
-              />
+              <img src="images/LambeauField.jpg" alt="Lambeau Field" />
               <p><strong>Category:</strong> Outdoor/Open</p>
               <p>
                 <strong>Description:</strong> Home of the Green Bay Packers,
@@ -145,10 +150,7 @@
               <a href="https://www.usbankstadium.com/" target="_blank">
                 <h2>U.S. Bank Stadium</h2>
               </a>
-              <img
-                src="images/UsBankStadium.jpg"
-                alt="U.S. Bank Stadium"
-              />
+              <img src="images/UsBankStadium.jpg" alt="U.S. Bank Stadium" />
               <p><strong>Category:</strong> Indoor/Fixed Roof</p>
               <p>
                 <strong>Description:</strong> Home of the Minnesota Vikings,
@@ -164,10 +166,7 @@
               <a href="https://mercedesbenzstadium.com/" target="_blank">
                 <h2>Mercedes-Benz Stadium</h2>
               </a>
-              <img
-                src="images/MercedesBenzStadium.jpg"
-                alt="Mercedes-Benz Stadium"
-              />
+              <img src="images/MercedesBenzStadium.jpg" alt="Mercedes-Benz Stadium" />
               <p><strong>Category:</strong> Retractable Roof</p>
               <p>
                 <strong>Description:</strong> Home of the Atlanta Falcons,
@@ -182,10 +181,7 @@
               <a href="https://www.panthers.com/stadium/" target="_blank">
                 <h2>Bank of America Stadium</h2>
               </a>
-              <img
-                src="images/BankOfAmericaStadium.jpeg"
-                alt="Bank of America Stadium"
-              />
+              <img src="images/BankOfAmericaStadium.jpeg" alt="Bank of America Stadium" />
               <p><strong>Category:</strong> Outdoor/Open</p>
               <p>
                 <strong>Description:</strong> Home of the Carolina Panthers,
@@ -200,10 +196,7 @@
               <a href="https://www.caesarsSuperdome.com/" target="_blank">
                 <h2>Caesars Superdome</h2>
               </a>
-              <img
-                src="images/CeasarsSuperdome.jpg"
-                alt="Caesars Superdome"
-              />
+              <img src="images/CeasarsSuperdome.jpg" alt="Caesars Superdome" />
               <p><strong>Category:</strong> Indoor/Dome</p>
               <p>
                 <strong>Description:</strong> Home of the New Orleans Saints,
@@ -218,10 +211,7 @@
               <a href="https://raymondjamesstadium.com/" target="_blank">
                 <h2>Raymond James Stadium</h2>
               </a>
-              <img
-                src="images/RaymondJamesStadium.jpeg"
-                alt="Raymond James Stadium"
-              />
+              <img src="images/RaymondJamesStadium.jpeg" alt="Raymond James Stadium" />
               <p><strong>Category:</strong> Outdoor/Open</p>
               <p>
                 <strong>Description:</strong> Home of the Tampa Bay Buccaneers,
@@ -237,10 +227,7 @@
               <a href="https://www.statefarmstadium.com/" target="_blank">
                 <h2>State Farm Stadium</h2>
               </a>
-              <img
-                src="images/StateFarmStadium.jpeg"
-                alt="State Farm Stadium"
-              />
+              <img src="images/StateFarmStadium.jpeg" alt="State Farm Stadium" />
               <p><strong>Category:</strong> Retractable Roof</p>
               <p>
                 <strong>Description:</strong> Home of the Arizona Cardinals,
@@ -255,10 +242,7 @@
               <a href="https://www.sofistadium.com/" target="_blank">
                 <h2>SoFi Stadium</h2>
               </a>
-              <img
-                src="images/SofiStadium.jpg"
-                alt="SoFi Stadium"
-              />
+              <img src="images/SofiStadium.jpg" alt="SoFi Stadium" />
               <p><strong>Category:</strong> Indoor/Canopy</p>
               <p>
                 <strong>Description:</strong> Shared home of the Los Angeles
@@ -273,10 +257,7 @@
               <a href="https://www.levisstadium.com/" target="_blank">
                 <h2>Levi's Stadium</h2>
               </a>
-              <img
-                src="images/LevisStadium.jpg"
-                alt="Levi's Stadium"
-              />
+              <img src="images/LevisStadium.jpg" alt="Levi's Stadium" />
               <p><strong>Category:</strong> Outdoor/Open</p>
               <p>
                 <strong>Description:</strong> Home of the San Francisco 49ers,
@@ -291,10 +272,7 @@
               <a href="https://www.lumenfield.com/" target="_blank">
                 <h2>Lumen Field</h2>
               </a>
-              <img
-                src="images/LumenField.jpg"
-                alt="Lumen Field"
-              />
+              <img src="images/LumenField.jpg" alt="Lumen Field" />
               <p><strong>Category:</strong> Outdoor/Open</p>
               <p>
                 <strong>Description:</strong> Home of the Seattle Seahawks,
@@ -306,8 +284,9 @@
         </div>
       </div>
     </main>
+
+
     <footer>
-      <div class="content-width"></div>
     </footer>
   </body>
 </html>

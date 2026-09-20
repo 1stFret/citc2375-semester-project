@@ -29,8 +29,14 @@ This application will list NFL stadiums and include various metrics including st
 
 ## Week 4
 
--Defined a :root Dallas Cowboys color palette using CSS variables to eliminate hardcoded hex values.  
--Made the main navigation a Flexbox container for adaptive header alignment.
--Implemented a responsive stadium card grid using display: flex and display: flex-wrap on .item-list.  
--Added a card hover effect featuring elevation, scaling, and drop shadows.  
+- Defined a :root Dallas Cowboys color palette using CSS variables to eliminate hardcoded hex values.  
+- Made the main navigation a Flexbox container for adaptive header alignment.
+- Implemented a responsive stadium card grid using display: flex and display: flex-wrap on .item-list.  
+- Added a card hover effect featuring elevation, scaling, and drop shadows.  
 
+## Week 5
+- Added an "Client/add.html" to give users the ability to add a stadium to the collection.
+- Created a form using multiple input types and multiple types of input validation.
+- Linked the Add page to the project with congruent header/nav elements.
+- Embedded a table with example data to show what metrics can be gathered from the webpage.
+- Corrected empty nav tags as noted in Week 4 feedback and added dummy nav elements for aesthetics. 
