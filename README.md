@@ -40,3 +40,7 @@ This application will list NFL stadiums and include various metrics including st
 - Linked the Add page to the project with congruent header/nav elements.
 - Embedded a table with example data to show what metrics can be gathered from the webpage.
 - Corrected empty nav tags as noted in Week 4 feedback and added dummy nav elements for aesthetics. 
+
+## Week 6
+- Connected app.js to index.html with a script tag.
+- Verified proper script linkage through Dev Tools console on hosted site.
