@@ -1,46 +1,23 @@
-# NFL Stadiums
-This application will list NFL stadiums and include various metrics including state, capacity, indoor/outdoor, and more. This application will show understanding of multiple disciplines of internet software dev. 
+# NFL Stadiums Collection
 
-# Project Progress
+## Project Description
+This application lists NFL stadiums and provides key metrics including seating capacity, location, category (indoor/outdoor/retractable), and primary team details. It demonstrates core front-end software development principles using responsive HTML, CSS, and client-side JavaScript.
 
-## Deployment
+## Current Features
+- Built with clear structural tags, accessible form labels, table captions/headers, and alt text across images.
+- Seamless navigation connecting index.html, about.html, and add.html.
+- Styled with custom CSS variables and Flexbox layouts for header alignment and adaptive displays.
+- Includes an interactive submission form on add.html utilizing multiple input types, dropdowns, and client-side validation rules.
+- External javascript file performing calculations, template literals, and boolean decision checks logged directly to the browser console.
 
-- GitHub Repository: https://github.com/1stFret/citc2375-semester-project
-- Live Site: https://citc2375-mbrogers1-project.onrender.com/
-- Project Topic: NFL Stadiums.
+## Planned Data Model
+- `category`: Describes stadium type (Outdoor, Indoor/Dome, Retractable Roof)
+- `name`: Official name of the stadium
+- `team`: Primary NFL team(s) playing at the venue
+- `location`: City and state location
+- `capacity`: Maximum seating capacity
+- `imageUrl`: Local path or direct URL to stadium photograph
+- `redirect`: External link to official stadium venue site
 
-- ## Planned Data Model
-- catagory: Whether it is indoor/outdoor and open/dome
-- name: The official name of the stadium
-- team: The primary NFL team(s) that play there
-- location: City and state where the stadium is located
-- capacity: Maximum seating capacity
-- imageUrl: Path or URL to an image of the stadium
-- redirect: A link to the stadiums hosted site.
-
-## Week 3
-
-- Created and linked a universal 'styles.css' file across all pages.
-- Established typography hierarchy for all 'h1', 'h2', and 'p'.
-- Implemented 'header' and 'footer' layouts with styled '.content-width' containers.
-- Styled stadium article components using '.stadium-article' for consistency across the site.
-- Image handling with using 'max-width: 100%'.
-- Used ':hover' and ':focus' to visually help direct users.
-
-## Week 4
-
-- Defined a :root Dallas Cowboys color palette using CSS variables to eliminate hardcoded hex values.  
-- Made the main navigation a Flexbox container for adaptive header alignment.
-- Implemented a responsive stadium card grid using display: flex and display: flex-wrap on .item-list.  
-- Added a card hover effect featuring elevation, scaling, and drop shadows.  
-
-## Week 5
-- Added an "Client/add.html" to give users the ability to add a stadium to the collection.
-- Created a form using multiple input types and multiple types of input validation.
-- Linked the Add page to the project with congruent header/nav elements.
-- Embedded a table with example data to show what metrics can be gathered from the webpage.
-- Corrected empty nav tags as noted in Week 4 feedback and added dummy nav elements for aesthetics. 
-
-## Week 6
-- Connected app.js to index.html with a script tag.
-- Verified proper script linkage through Dev Tools console on hosted site.
+## Live Site
+- **Public Render Deployment:** https://citc2375-mbrogers1-project.onrender.com/
