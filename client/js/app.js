@@ -30,3 +30,8 @@ const summaryMessage = `The ${projectTitle} collection contains ${numOfStadiums}
     // Summary .log()
 console.log(summaryMessage);
 console.log(`Total Capacity Of All Stadiums: ${totalCapacity}`);
+
+    // Test data.js functions
+console.log("Stadium by ID (1):", getItemById(1));
+console.log("Stadiums Over 80,000 Capacity:", getStadiumsByCapacity(80000, '>'));
+console.log("Average Stadium Capacity:", getAverageCapacity());

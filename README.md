@@ -19,5 +19,16 @@ This application lists NFL stadiums and provides key metrics including seating c
 - `imageUrl`: Local path or direct URL to stadium photograph
 - `redirect`: External link to official stadium venue site
 
+## Data Structure & Schema
+
+The project utilizes a centralized data store (`client/js/data.js`) structured as an array of objects. Each item contains the following schema:
+
+- `id`: *(Number)*: Unique numeric identifier for the stadium.
+- `name`: *(String)*: Name of the stadium.
+- `category`: *(String)*: Stadium type (indoor/outdoor).
+- `description`: *(String)*: Brief summary of stadium.
+- `capacity`: *(Number)*: Seating capacity.
+- `roofType`: *(String)*: Stadium roof type.
+
 ## Live Site
 - **Public Render Deployment:** https://citc2375-mbrogers1-project.onrender.com/
