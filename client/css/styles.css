@@ -7,6 +7,9 @@
   --navy-primary: #041e42;
   --navy-hover: #003594;
   --silver-border: #86939e;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
 }
 
 body {
@@ -123,9 +126,10 @@ nav a:focus {
 
 /*  STADIUM CARDS */
 .item-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-md);
+  justify-items: center;
 }
 
 figure {

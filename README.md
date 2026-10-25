@@ -30,5 +30,8 @@ The project utilizes a centralized data store (`client/js/data.js`) structured a
 - `capacity`: *(Number)*: Seating capacity.
 - `roofType`: *(String)*: Stadium roof type.
 
+## Layout Architecture
+I utilized CSS Grid with `repeat(auto-fit, minmax(300px, 1fr))` for the main stadium item collection to achieve a responsive two-dimensional layout that automatically handles row and column wrapping. Flexbox was not optimal because it's reserved for one-dimensional components, such as navigation and header alignment where a single linear flow is more appropriate.
+
 ## Live Site
 - **Public Render Deployment:** https://citc2375-mbrogers1-project.onrender.com/
